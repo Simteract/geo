@@ -1,8 +1,28 @@
+#[cfg(feature = "std")]
+use crate::failure::Error;
+use crate::lib::Vec;
+#[cfg(not(feature = "std"))]
+use crate::lib::{self};
 use crate::{
     Coordinate, CoordinateType, Geometry, GeometryCollection, Line, LineString, MultiLineString,
     MultiPoint, MultiPolygon, Point, Polygon, Rect,
 };
-use failure::Error;
+#[cfg(not(feature = "std"))]
+use std::fmt::Display;
+
+#[cfg(not(feature = "std"))]
+#[derive(Debug, Clone)]
+pub struct Error {
+    pub error: &'static dyn lib::Error,
+}
+#[cfg(not(feature = "std"))]
+impl Display for Error {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::result::Result<(), core::fmt::Error> {
+        write!(fmt, "{}", self.error)
+    }
+}
+#[cfg(not(feature = "std"))]
+impl snafu::Error for Error {}
 
 /// Map a function over all the coordinates in an object, returning a new one
 pub trait MapCoords<T, NT> {

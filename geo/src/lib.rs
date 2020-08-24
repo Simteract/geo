@@ -1,3 +1,40 @@
+#![cfg_attr(not(feature = "std"), no_std)]
+
+#[cfg(not(feature = "std"))]
+extern crate core as std;
+
+#[cfg(not(feature = "std"))]
+extern crate alloc;
+
+pub mod lib {
+    #[cfg(not(feature = "std"))]
+    pub use alloc::vec::Vec;
+    #[cfg(not(feature = "std"))]
+    pub use alloc::{format, vec};
+    #[cfg(feature = "std")]
+    pub use std::vec::Vec;
+
+    #[cfg(not(feature = "std"))]
+    pub use alloc::boxed::Box;
+    #[cfg(feature = "std")]
+    pub use std::boxed::Box;
+
+    #[cfg(not(feature = "std"))]
+    pub use alloc::rc::{Rc, Weak};
+    #[cfg(feature = "std")]
+    pub use std::rc::{Rc, Weak};
+
+    #[cfg(not(feature = "std"))]
+    pub use alloc::collections::BinaryHeap;
+    #[cfg(feature = "std")]
+    pub use std::collections::BinaryHeap;
+
+    #[cfg(not(feature = "std"))]
+    pub use snafu::Error;
+    #[cfg(feature = "std")]
+    pub use std::error::Error;
+}
+
 extern crate geo_types;
 extern crate num_traits;
 #[cfg(feature = "use-serde")]

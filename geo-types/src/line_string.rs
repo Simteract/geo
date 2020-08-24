@@ -1,3 +1,4 @@
+use crate::lib::*;
 use crate::{Coordinate, CoordinateType, Line, Point, Triangle};
 use std::iter::FromIterator;
 use std::ops::{Index, IndexMut};
@@ -168,7 +169,7 @@ impl<T: CoordinateType, IC: Into<Coordinate<T>>> FromIterator<IC> for LineString
 /// Iterate over all the [Coordinate](struct.Coordinates.html)s in this `LineString`.
 impl<T: CoordinateType> IntoIterator for LineString<T> {
     type Item = Coordinate<T>;
-    type IntoIter = ::std::vec::IntoIter<Coordinate<T>>;
+    type IntoIter = vec::IntoIter<Coordinate<T>>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()

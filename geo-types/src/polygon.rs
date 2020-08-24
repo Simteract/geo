@@ -1,3 +1,4 @@
+use crate::lib::*;
 use crate::{CoordinateType, LineString, Point, Rect};
 use num_traits::{Float, Signed};
 

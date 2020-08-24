@@ -4,9 +4,10 @@
 // - https://nathanrooy.github.io/posts/2016-12-18/vincenty-formula-with-python/
 // - https://github.com/janantala/GPS-distance/blob/master/java/Distance.java
 
+use crate::lib::*;
 use crate::{Point, EARTH_FLATTENING, EQUATORIAL_EARTH_RADIUS, POLAR_EARTH_RADIUS};
 use num_traits::{Float, FromPrimitive};
-use std::{error, fmt};
+use std::fmt;
 
 /// Determine the distance between two geometries using [Vincenty’s formulae].
 ///
@@ -154,7 +155,7 @@ impl fmt::Display for FailedToConvergeError {
     }
 }
 
-impl error::Error for FailedToConvergeError {
+impl Error for FailedToConvergeError {
     fn description(&self) -> &str {
         "Vincenty algorithm failed to converge"
     }

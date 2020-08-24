@@ -1,4 +1,5 @@
 use crate::algorithm::euclidean_distance::EuclideanDistance;
+use crate::lib::*;
 use crate::utils::partition_slice;
 use crate::{Line, LineString, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon};
 use num_traits::Float;

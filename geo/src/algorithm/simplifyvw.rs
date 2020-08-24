@@ -1,10 +1,10 @@
+use crate::lib::*;
 use crate::prelude::*;
 use crate::{
     Coordinate, Line, LineString, MultiLineString, MultiPolygon, Point, Polygon, Triangle,
 };
 use num_traits::Float;
 use std::cmp::Ordering;
-use std::collections::BinaryHeap;
 
 use rstar::{RTree, RTreeNum};
 

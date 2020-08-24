@@ -1,4 +1,6 @@
 use crate::algorithm::contains::Contains;
+#[cfg(not(feature = "std"))]
+use crate::lib::*;
 use crate::{Line, LineString, Point, Polygon, Rect};
 use num_traits::Float;
 

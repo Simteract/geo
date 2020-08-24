@@ -1,3 +1,4 @@
+use crate::lib::*;
 use crate::{CoordinateType, Point};
 use std::iter::FromIterator;
 
@@ -46,7 +47,7 @@ impl<T: CoordinateType, IP: Into<Point<T>>> FromIterator<IP> for MultiPoint<T> {
 /// Iterate over the `Point`s in this `MultiPoint`.
 impl<T: CoordinateType> IntoIterator for MultiPoint<T> {
     type Item = Point<T>;
-    type IntoIter = ::std::vec::IntoIter<Point<T>>;
+    type IntoIter = vec::IntoIter<Point<T>>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()

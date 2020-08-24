@@ -2,6 +2,7 @@ use crate::algorithm::contains::{get_position, Contains, PositionPoint};
 use crate::algorithm::euclidean_length::EuclideanLength;
 use crate::algorithm::intersects::Intersects;
 use crate::algorithm::polygon_distance_fast_path::*;
+use crate::lib::*;
 use crate::{
     Line, LineString, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon, Triangle,
 };

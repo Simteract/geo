@@ -1,3 +1,4 @@
+use crate::lib::*;
 use crate::{CoordinateType, Geometry};
 use std::iter::FromIterator;
 
@@ -45,7 +46,7 @@ impl<T: CoordinateType, IG: Into<Geometry<T>>> FromIterator<IG> for GeometryColl
 
 impl<T: CoordinateType> IntoIterator for GeometryCollection<T> {
     type Item = Geometry<T>;
-    type IntoIter = ::std::vec::IntoIter<Geometry<T>>;
+    type IntoIter = vec::IntoIter<Geometry<T>>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()
