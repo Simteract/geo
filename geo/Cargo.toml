@@ -17,12 +17,16 @@ travis-ci = { repository = "georust/geo" }
 [dependencies]
 num-traits = { version = "0.2", default-features = false }
 serde = { version = "1.0", optional = true, features = ["derive"] }
-rstar = { version = "0.2" }
 failure = { version = "0.1.8" }
 postgis = { version = "0.6", optional = true }
 proj = { version = "0.7", optional = true }
 geo-types = { path = "../geo-types", default-features = false,  features = ["rstar"] }
 snafu = { version = "0.6.8", default-features = false }
+
+[dependencies.rstar]
+git = "https://github.com/zendurix/rstar"
+rev = "e188160c5d7483f94110ca60ec0ea66cb428bf60"
+default-features = false
 
 [features]
 default = []
