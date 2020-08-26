@@ -13,7 +13,11 @@ edition = "2018"
 [dependencies]
 num-traits = { version = "0.2", default-features = false }
 serde = { version = "1", optional = true, features = ["derive"] }
-rstar = { version = "0.2", optional = true }
+
+[dependencies.rstar]
+git = "https://github.com/zendurix/rstar"
+rev = "e188160c5d7483f94110ca60ec0ea66cb428bf60"
+default-features = false
 
 [features]
 default = ["std"]
